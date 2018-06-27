@@ -6,4 +6,5 @@ RUN sudo apt-get update && \
     sudo apt-get install python3-pip && \
     pip3 install awsebcli --upgrade --user
 
+# Set PATH
 ENV PATH="/home/circleci/.local/bin:${PATH}"
