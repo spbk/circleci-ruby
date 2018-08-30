@@ -6,14 +6,11 @@ RUN sudo apt-get update && \
     sudo apt-get install python3-pip && \
     pip3 install awsebcli --upgrade --user
 
-# Turn on globstar to allow ** to recurse
-RUN shopt -s globstar
-
 RUN sudo apt-get install \
     # for closure compiler
     default-jre \
     # for paperclip-av-transcoder
     ffmpeg
-
-# Set PATH
+    
+ENTRYPOINT /bin/bash
 ENV PATH="/home/circleci/.local/bin:${PATH}"
