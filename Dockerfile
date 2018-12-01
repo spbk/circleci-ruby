@@ -11,6 +11,14 @@ RUN sudo apt-get install \
     default-jre \
     # for paperclip-av-transcoder
     ffmpeg
-    
+
+# Install Node.js and Yarn for Webpack(er)
+RUN \
+  curl -sL https://deb.nodesource.com/setup_11.x | bash - && \
+  apt-get install -y nodejs && \
+  curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+  echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+  apt-get update && apt-get install yarn    
+      
 ENTRYPOINT /bin/bash
 ENV PATH="/home/circleci/.local/bin:${PATH}"
