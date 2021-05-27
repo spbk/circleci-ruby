@@ -26,5 +26,9 @@ RUN sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "aws
   sudo ./aws/install && \
   aws --version 
 
+# Install nginx
+RUN sudo apt-get update && \
+  sudo apt-get install nginx
+
 ENTRYPOINT /bin/bash
 ENV PATH="/home/circleci/.local/bin:${PATH}"
